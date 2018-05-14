@@ -1,0 +1,24 @@
+body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+}
+
+#canvas {
+    background: #87e;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.main-content {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
