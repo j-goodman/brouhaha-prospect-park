@@ -6,11 +6,16 @@ function Diorama (obj) {
     this.canvas.width = window.innerWidth
     this.canvas.height = window.innerHeight
     this.ctx = this.canvas.getContext('2d')
-    this.position = {
-        x: 0,
-        y: 0,
-    }
     this.scale = obj.scale
+    this.limits = {
+        x: [-598 + 4877 * this.scale - window.innerWidth - 50, -1700],
+        y: [0, -2000],
+        z: [160, 0],
+    }
+    this.position = {
+        x: this.limits.x[1],
+        y: this.limits.y[1],
+    }
 }
 
 function Cutout (obj) {
@@ -25,53 +30,85 @@ function Cutout (obj) {
     this.height = obj.height
 }
 
+window.addEventListener('resize', () => {
+    this.canvas.width = window.innerWidth
+    this.canvas.height = window.innerHeight
+    diorama.limits = {
+        x: [-598 + 4877 * this.scale - window.innerWidth - 50, -1700],
+        y: [0, -2000],
+        z: [160, 0],
+    }
+    diorama.draw()
+})
+
+window.addEventListener('keydown', key => {
+    switch (key.code) {
+        case 'ArrowLeft':
+            smoothMove(diorama.limits.x[0], diorama.limits.x[1], 134, 30, x => {
+                diorama.position.x = x
+                diorama.draw()
+            })
+            break;
+        case 'ArrowRight':
+            smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 30, x => {
+                diorama.position.x = x
+                diorama.draw()
+            })
+            break;
+        case 'ArrowDown':
+            smoothMove(diorama.limits.y[1], 0, 80, 30, x => {
+                diorama.position.y = x
+                diorama.draw()
+            })
+            break;
+        case 'ArrowUp':
+            smoothMove(0, diorama.limits.y[1], 80, 30, x => {
+                diorama.position.y = x
+                diorama.draw()
+            })
+            break;
+    }
+    diorama.checkBounds()
+})
+
 Diorama.prototype.draw = function () {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     this.cutouts.map(cutout => {
-        if (cutout.height === 'auto' && cutout.image.height !== 0) {
-            cutout.height = cutout.width * (cutout.image.height / cutout.image.width)
-            console.log('Setting cutout height...', cutout.height)
-        } else if (cutout.width === 'auto' && cutout.image.width !== 0) {
-            cutout.width = cutout.height * (cutout.image.width / cutout.image.height)
-            console.log('Setting cutout width...', cutout.width)
-        }
-
         this.ctx.drawImage(
             cutout.image,
-            cutout.anchor.x + this.position.x,
-            cutout.anchor.y + this.position.y - (cutout.image.height * this.scale) + canvas.height,
-            cutout.image.width * this.scale,
-            cutout.image.height * this.scale
+            (cutout.anchor.x - this.position.x) * ((this.limits.z[0] - cutout.anchor.z) / this.limits.z[0]),
+            (cutout.anchor.y - this.position.y * (this.limits.z[0] - cutout.anchor.z) / this.limits.z[0]) - (cutout.image.height * this.scale) + canvas.height,
+            (cutout.image.width * this.scale),
+            (cutout.image.height * this.scale)
         )
     })
 }
 
-Diorama.prototype.scrollToBottom = function () {
-    var frames = 70
-    var frame = 0
-    let target = document.body.getBoundingClientRect().height - window.innerHeight + 60
-    let distance = target - window.pageYOffset
-    var staticIncrement = distance / frames
-    let interval = window.setInterval(() => {
-        let increment = staticIncrement * 2 * ((frames / 2 - Math.abs(frames / 2 - frame)) / (frames / 2))
-        frame += 1
-        if (frame > frames) {
-            window.clearInterval(interval)
-        }
-        this.position.y = window.pageYOffset + increment
+Diorama.prototype.checkBounds = function () {
+    let changed = false
+    if (diorama.position.y > diorama.limits.y[0]) {
+        diorama.position.y = diorama.limits.y[0]
+        changed = true
+    }
+    if (diorama.position.y < diorama.limits.y[1]) {
+        diorama.position.y = diorama.limits.y[1]
+        changed = true
+    }
+    if (diorama.position.x > diorama.limits.x[0]) {
+        diorama.position.x = diorama.limits.x[0]
+        changed = true
+    }
+    if (diorama.position.x < diorama.limits.x[1]) {
+        diorama.position.x = diorama.limits.x[1]
+        changed = true
+    }
+    if (changed) {
         this.draw()
-    }, 25)
-    window.addEventListener('wheel', window.clearInterval.bind(null, interval))
-}
-
-Diorama.prototype.getCutout = function (name) {
-    return this.cutouts.filter(cut => {
-        return cut.name === name
-    })[0]
+    }
 }
 
 instantiateDiorama = () => {
-    let scale = .5
+    let scale = .65
     window.diorama = new Diorama ({
         canvasId: 'canvas',
         scale: scale,
@@ -79,35 +116,29 @@ instantiateDiorama = () => {
             new Cutout ({
                 name: 'manhattan',
                 anchor: {
-                    x: -1300,
-                    y: 0,
-                    z: 120,
+                    x: -4000,
+                    y: 100,
+                    z: 130,
                 },
                 imageSource: 'images/background/manhattan.png',
-                width: 4500,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'greenwood',
                 anchor: {
-                    x: -760,
-                    y: 0,
+                    x: -1300,
+                    y: -224,
                     z: 90,
                 },
                 imageSource: 'images/background/greenwood.png',
-                width: 1600,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'bayridge',
                 anchor: {
-                    x: -820,
-                    y: 0,
+                    x: -1800,
+                    y: -150,
                     z: 100,
                 },
                 imageSource: 'images/background/bayridge.png',
-                width: 1160,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'brooklyn',
@@ -117,75 +148,60 @@ instantiateDiorama = () => {
                     z: 0,
                 },
                 imageSource: 'images/background/brooklyn.png',
-                width: 4500,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'williamsburg',
                 anchor: {
-                    x: 480,
-                    y: 0,
-                    z: 60,
+                    x: 420,
+                    y: -150,
+                    z: 70,
                 },
                 imageSource: 'images/background/williamsburg.png',
-                width: 1100,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'warehouse',
                 anchor: {
-                    x: 2240,
-                    y: 0,
+                    x: 1900,
+                    y: 84,
                     z: 40,
                 },
                 imageSource: 'images/background/warehouse.png',
-                width: 1300,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'ridgewood',
                 anchor: {
-                    x: 1650,
-                    y: 0,
-                    z: 70,
+                    x: 1740,
+                    y: -50,
+                    z: 80,
                 },
                 imageSource: 'images/background/ridgewood.png',
-                width: 1450,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'boathouse',
                 anchor: {
-                    x: -1000,
+                    x: -1700,
                     y: 0,
                     z: 30,
                 },
                 imageSource: 'images/background/boathouse.png',
-                width: 2400,
-                height: 'auto',
             }),
             new Cutout ({
                 name: 'tunnel',
                 anchor: {
-                    x: -1420,
-                    y: 0,
+                    x: -2060,
+                    y: -60,
                     z: 60,
                 },
                 imageSource: 'images/background/tunnel.png',
-                width: 2200,
-                height: 'auto',
             }),
         ],
     })
 
     window.diorama.scale = scale
 
-    diorama.position.y = 0
-    diorama.position.x = 0
-
     diorama.draw()
 }
 
-window.addEventListener("load", function(event) {
+window.addEventListener('load', function(event) {
     instantiateDiorama()
 });
