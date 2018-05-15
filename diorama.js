@@ -211,4 +211,13 @@ window.addEventListener('load', function(event) {
             diorama.draw()
         })
     })
+
+    let el = document.getElementsByTagName('canvas')[0]
+    el.addEventListener('touchstart', () => {
+        smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 30, x => {
+            diorama.position.x = x
+            diorama.draw()
+        })
+    }, false)
+
 });
