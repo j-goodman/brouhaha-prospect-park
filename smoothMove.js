@@ -3,12 +3,15 @@ function smoothMove (start, end, frames, frameRate, act) {
     let totalIncrement = start
     let distance = end - start
     let staticIncrement = distance / frames
-    let interval = window.setInterval(function () {
+    if (window.movementInterval) {
+        window.clearInterval(window.movementInterval)
+    }
+    window.movementInterval = window.setInterval(function () {
         let increment = staticIncrement * 2 * (
             (frames / 2 - Math.abs(frames / 2 - frame)) / (frames / 2)
         )
         if (frame++ > frames) {
-            window.clearInterval(interval)
+            window.clearInterval(window.movementInterval)
         }
         totalIncrement += increment
         act(totalIncrement)

@@ -31,10 +31,11 @@ function Cutout (obj) {
 }
 
 window.addEventListener('resize', () => {
+    console.log('Resize event.')
     this.canvas.width = window.innerWidth
     this.canvas.height = window.innerHeight
     diorama.limits = {
-        x: [-598 + 4877 * this.scale - window.innerWidth - 50, -1700],
+        x: [-598 + 4877 * diorama.scale - window.innerWidth - 50, -1700],
         y: [0, -2000],
         z: [160, 0],
     }
@@ -44,25 +45,25 @@ window.addEventListener('resize', () => {
 window.addEventListener('keydown', key => {
     switch (key.code) {
         case 'KeyA':
-            smoothMove(diorama.limits.x[0], diorama.limits.x[1], 134, 30, x => {
+            smoothMove(diorama.limits.x[0], diorama.limits.x[1], 134, 20, x => {
                 diorama.position.x = x
                 diorama.draw()
             })
             break;
         case 'KeyD':
-            smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 30, x => {
+            smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 20, x => {
                 diorama.position.x = x
                 diorama.draw()
             })
             break;
         case 'KeyS':
-            smoothMove(diorama.limits.y[1], 0, 80, 30, x => {
+            smoothMove(diorama.limits.y[1], 0, 100, 20, x => {
                 diorama.position.y = x
                 diorama.draw()
             })
             break;
         case 'KeyW':
-            smoothMove(0, diorama.limits.y[1], 80, 30, x => {
+            smoothMove(0, diorama.limits.y[1], 100, 20, x => {
                 diorama.position.y = x
                 diorama.draw()
             })
@@ -205,19 +206,47 @@ instantiateDiorama = () => {
 window.addEventListener('load', function(event) {
     instantiateDiorama()
     document.getElementsByClassName('enter')[0].addEventListener('click', () => {
-        document.getElementsByClassName('enter-content')[0].classList.add('hidden')
-        smoothMove(diorama.limits.y[1], 0, 80, 30, x => {
+        document.getElementsByClassName('enter-content')[0].classList.add('invisible')
+        setTimeout(() => {
+            document.getElementsByClassName('enter-content')[0].classList.add('hidden')
+            document.getElementsByClassName('main-content')[0].classList.remove('hidden')
+            setTimeout(() => {
+                document.getElementsByClassName('main-content')[0].classList.remove('invisible')
+            }, 20)
+        }, 2000)
+        smoothMove(diorama.limits.y[1], 0, 100, 20, x => {
             diorama.position.y = x
             diorama.draw()
         })
     })
 
-    let el = document.getElementsByTagName('canvas')[0]
-    el.addEventListener('touchstart', () => {
-        smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 30, x => {
+    document.getElementsByClassName('right-arrow')[0].addEventListener('click', () => {
+        document.getElementsByClassName('main-content')[0].classList.add('invisible')
+        setTimeout(() => {
+            document.getElementsByClassName('main-content')[0].classList.add('hidden')
+            document.getElementsByClassName('side-content')[0].classList.remove('hidden')
+            setTimeout(() => {
+                document.getElementsByClassName('side-content')[0].classList.remove('invisible')
+            }, 20)
+        }, 2000)
+        smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 20, x => {
             diorama.position.x = x
             diorama.draw()
         })
-    }, false)
+    })
 
+    document.getElementsByClassName('left-arrow')[0].addEventListener('click', () => {
+        document.getElementsByClassName('side-content')[0].classList.add('invisible')
+        setTimeout(() => {
+            document.getElementsByClassName('side-content')[0].classList.add('hidden')
+            document.getElementsByClassName('main-content')[0].classList.remove('hidden')
+            setTimeout(() => {
+                document.getElementsByClassName('main-content')[0].classList.remove('invisible')
+            }, 20)
+        }, 2000)
+        smoothMove(diorama.limits.x[0], diorama.limits.x[1], 134, 20, x => {
+            diorama.position.x = x
+            diorama.draw()
+        })
+    })
 });
