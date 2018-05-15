@@ -43,25 +43,25 @@ window.addEventListener('resize', () => {
 
 window.addEventListener('keydown', key => {
     switch (key.code) {
-        case 'ArrowLeft':
+        case 'KeyA':
             smoothMove(diorama.limits.x[0], diorama.limits.x[1], 134, 30, x => {
                 diorama.position.x = x
                 diorama.draw()
             })
             break;
-        case 'ArrowRight':
+        case 'KeyD':
             smoothMove(diorama.limits.x[1], diorama.limits.x[0], 134, 30, x => {
                 diorama.position.x = x
                 diorama.draw()
             })
             break;
-        case 'ArrowDown':
+        case 'KeyS':
             smoothMove(diorama.limits.y[1], 0, 80, 30, x => {
                 diorama.position.y = x
                 diorama.draw()
             })
             break;
-        case 'ArrowUp':
+        case 'KeyW':
             smoothMove(0, diorama.limits.y[1], 80, 30, x => {
                 diorama.position.y = x
                 diorama.draw()
@@ -204,4 +204,11 @@ instantiateDiorama = () => {
 
 window.addEventListener('load', function(event) {
     instantiateDiorama()
+    document.getElementsByClassName('enter')[0].addEventListener('click', () => {
+        document.getElementsByClassName('enter-content')[0].classList.add('hidden')
+        smoothMove(diorama.limits.y[1], 0, 80, 30, x => {
+            diorama.position.y = x
+            diorama.draw()
+        })
+    })
 });
