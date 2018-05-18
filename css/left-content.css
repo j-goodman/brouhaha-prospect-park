@@ -1,0 +1,111 @@
+.main-content {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.main-title, .main-subtitle {
+    background: rgba(10,15,5,0.9);
+    color: rgba(255,255,255,1);
+    margin: 0;
+}
+
+.main-title {
+    color: rgba(255,255,255,.8);
+    font-family: 'Oswald', sans-serif;
+    font-size: 10em;
+    margin-top: 3%;
+    padding-left: 3%;
+    text-transform: uppercase;
+    width: 56%;
+}
+
+.main-subtitle {
+    font-family: 'Slabo 27px', sans-serif;
+    font-size: 2.5em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-left: 2%;
+    width: 60%;
+}
+
+.main-detail-section {
+    background: rgba(10,15,5,0.9);
+    color: rgba(255,255,255,1);
+    width: 50%;
+}
+
+.main-navigation-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 16px;
+    padding: 16px;
+}
+
+.book-ticket-button, .right-arrow {
+    background: rgba(255,255,255,.7);
+    color: rgba(10,15,5,1);
+    font-size: 2em;
+    margin: 12px;
+    padding: 12px;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.right-arrow {
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.book-ticket-button:hover {
+    opacity: .9;
+    transform: scale(1.1);
+}
+
+.right-arrow:hover {
+    transform: translate(8px);
+}
+
+.main-detail-blurb {
+    font-size: 1.6em;
+    letter-spacing: 1px;
+    padding: 4%;
+    padding-top: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .main-title {
+        margin-top: 6%;
+        width: 76%;
+    }
+    .main-subtitle {
+        width: 66%;
+    }
+    .main-detail-section {
+        width: 74%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .main-title, .main-subtitle, .main-detail-section {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-title {
+        font-size: 8em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .main-navigation-section {
+        flex-direction: column;
+    }
+}

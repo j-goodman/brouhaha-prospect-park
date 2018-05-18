@@ -3,11 +3,21 @@
     <head>
         <meta charset='utf-8'>
         <title>Park's Prospects</title>
+
+        <!--scripts-->
+        <script src='lib/accordion.js'></script>
         <script src='lib/diorama.js'></script>
         <script src='lib/smoothMove.js'></script>
         <script src='lib/swipe.js'></script>
-        <script src='lib/tilt.js'></script>
-        <link rel='stylesheet' href='style.css'>
+        <!-- <script src='lib/tilt.js'></script> -->
+
+        <!--styling-->
+        <link rel='stylesheet' href='css/right-content.css'>
+        <link rel='stylesheet' href='css/left-content.css'>
+        <link rel='stylesheet' href='css/landing.css'>
+        <link rel='stylesheet' href='css/general.css'>
+
+        <!--assets-->
         <link rel='shortcut icon' href='images/site/brouhaha-b.ico' />
         <link href='https://fonts.googleapis.com/css?family=Oswald|Slabo+27px' rel='stylesheet'>
         {% seo %}
@@ -15,30 +25,122 @@
     <body>
         <canvas id='canvas' width='2092' height='1120'></canvas>
         <section class='enter-content'>
-            <h1 class='title'>the <em>Brouhaha</em> Theater</h1>
-            <h2 class='subtitle'>Project <em>Presents</em></h2>
-            <h2 class='enter'><arrow class='arrow'></arrow></h2>
+            <div class='landing-title-box'>
+                <h1 class='landing-title'>The <em>Brouhaha</em> Theatre</h1>
+                <h2 class='landing-title'>Project <em>Presents</em></h2>
+            </div>
+            <div class='enter-arrow'>
+                <div class='inner-arrow'></div>
+            </div>
         </section>
         <section class='main-content invisible hidden'>
-            <!-- <h1 class='show-title'>Binnenwater 2</h1>
-            <h3 class='show-subtitle'>An immersive excursion into Prospect Park</h3> -->
-            <div class='detail-section'>
-                <section class='buttons-section'>
-                    <!-- <div class='book-button'>Book Your Ticket</div> -->
-                    <section class='right-arrow'><div class='about-button'>More About the Show</div><div class='right-triangle'></div></section>
-                </section>
-                <!-- <div class='detail-blurb'>
-                    A group of high school students are enjoying a beautiful summer evening in the park. An audience of 15 finds themselves in the midst of this insular friend group as these young people navigate their individual and collective coming of age. The audience is divided and led through intimate dream-like moments in wooded paths and open meadows.
-                </div> -->
+            <h1 class='main-title'>A play</h1>
+            <h2 class='main-subtitle'>An immersive theater excursion into Prospect Park</h2>
+            <div class='main-detail-section'>
+                <div class='main-navigation-section'>
+                    <a class='book-ticket-button' href='http://www.thisiswhereyoudhypotheticallybuyyourticket.com'>Book your ticket</a>
+                    <a class='right-arrow' href='#'>More about the show</a>
+                </div>
+                <div class='main-detail-blurb'>
+                    The Brouhaha Theater Project makes its return to Brooklyn's oldest public park for an afternoon of performance, live music and dance. An audience of 15 finds themselves in the midst of an insular friend group of high school students and joins them as they navigate their individual and collective coming of age.
+                </div>
             </div>
         </section>
         <section class='side-content invisible hidden'>
-            <!-- <section class='accordian'>
-                <div class='accordian-item'>
-
+            <div class='left-arrow'>Back to main</div>
+            <div class='accordion'>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='brouhaha-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>The Brouhaha Theater Project</div>
+                            <div class='subtitle'>Producers of <em>A Play</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p><em>A Play</em> is the Brouhaha Theater Project's newest upcoming production, premiering in Prospect Park on August 9th, 2018. Want to see more about the show? Check out the <a href='http://www.youtube.com'>trailer</a>. <!--Click next to read about the people involved.--></p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
                 </div>
-            </section> -->
-            <div class='left-arrow'>Back</div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='max-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>Max Pendergast</div>
+                            <div class='subtitle'>Director</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>Max Pendergast founded The Brouhaha Theatre Project with Nick Auer, and co-directed its first three productions: Tunnel Odyssey, Wrestling with Lesbians, and Research & Development. Other Directing credits include The Castle of Perseverance, The Pirates of Penzance, and Black Cat Lost by Erin Courtney. Stage Management credits include MYTHO? (Abrons Art Center), BLDZR the musical (The Triad), I’m Bleeding all over the Place: A Living History Tour (La Mama), And That’s How the Rent Gets Paid (The Kitchen), The Egg Progect (Fringe NYC), and Billy the Kid (Mount Tremper Arts).</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='nick-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>Nick Auer</div>
+                            <div class='subtitle'>Director</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>Nick Auer is a director, stage manager, performer and sound designer.  In 2015, he co-founded The Brouhaha Theatre Project with Max Pendergast and has co-directed Brouhaha's first three productions: Tunnel Odyssey (Prospect Park), Wrestling with Lesbians (The Tank), and R&D (Dixon Place, The Keep).  Other directing highlights include an immersive adaptation of Apollinaire's early surrealist play The Breasts of Tiresias, staged in a suburban home.  He also works with experiential dance-theater company Third Rail Projects and has been an Assistant Stage Manager on The Grand Paradise, Ghost Light (LCT3), and Behind the City. He has a BA in Theater with a focus in Directing from Bates College.</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='sam-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>Sam Myers</div>
+                            <div class='subtitle'>Playwright</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>Sam Myers grew up on the scrubby plains of central Wyoming, studied English at Bates College, spent a semester developing a screenplay at FAMU in Prague, and then landed in Brooklyn. He did dramaturgical work for the Public Theatre in Lewiston, ME, and has since worked as a playwright's assistant in New York City and as the Literary Fellow at Playwrights Horizons. He is currently Terrence McNally's assistant. He appeared in and wrote Brouhaha's R&D: a nightmare in three flowcharts.</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='hanna-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>Hanna Allerton</div>
+                            <div class='subtitle'>Company Member</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>Hanna Allerton is a performer from New York City who majored in Theater and Environmental Studies at Bates College. She recently performed in The Brouhaha Theatre Project’s R&D: a nightmare in three flowcharts and Tunnel Odyssey. Before that, she appeared in Jeff Weiss’ And That’s How the Rent Gets Paid at The Kitchen. Other stage performances include The Summer in Gossensass, The Castle of Perseverance, Big Love and A Doll’s House. She currently works at Success Academy and is a member of the Friend’s Committee at the non-profit New York Cares.</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='john-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>John Goodman</div>
+                            <div class='subtitle'>Company Member</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>John Goodman is a performer and web developer currently living in Brooklyn. His performing background is mostly comedy and improv, and he's worked with the Brouhaha Theatre Project since the beginning on R&D: a nightmare in three flowcharts.</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+                <div class='accordion-item open'>
+                    <div class='top-half'>
+                        <div id='lydia-image' class='image'></div>
+                        <div class='name-and-subtitle'>
+                            <div class='name'>Lydia O'Brien</div>
+                            <div class='subtitle'>Culinary Director</em></div>
+                        </div>
+                    </div>
+                    <div class='bottom-half'>
+                        <p>Lydia O'Brien graduated from Bates College with a degree in English and a minor in Theater, with a brief hiatus studying Italian food culture during her semester in Rome. Since Bates, she has worked as an assistant to Julia Sherman, author of Salad for President: A Cookbook Inspired by Artists; taken courses at the Institute of Culinary Education; and launched her own website, Little Manhattan Kitchen. Lydia now works in cookbook publishing at Clarkson Potter and Ten Speed Press, imprints of the Crown Publishing Group at Penguin Random House. She has designed the menus for the Brouhaha Immersive Farm Dinner, an ongoing project, and for the 2017 Benefit.</p>
+                        <!-- <a class='next-accordion' href='#'>Next</a> -->
+                    </div>
+                </div>
+            </div>
         </section>
     </body>
 </html>
