@@ -69,6 +69,14 @@
     padding: 2%;
 }
 
+.accordion-item.open > .bottom-half > p > a {
+    color: rgba(130,90,230,1);
+}
+
+.accordion-item.open > .bottom-half > p > a:hover {
+    color: rgba(160,120,255,1);
+}
+
 @media screen and (max-width: 1000px) {
     .accordion-item.open > .bottom-half > p {
         font-size: 2em;
@@ -106,10 +114,8 @@
     margin-top: 250px;
 }
 
-.left-arrow {
+.left-arrow, .middle-right-arrow {
     background: rgba(0,0,0,.7);
-    border-top-left-radius: 60px;
-    border-bottom-left-radius: 60px;
     color: rgba(255,255,255,1);
     cursor: pointer;
     font-family: 'Oswald', sans-serif;
@@ -121,8 +127,22 @@
     transition: .2s;
 }
 
+.left-arrow {
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.middle-right-arrow {
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
 .left-arrow:hover {
     transform: translate(-8px);
+}
+
+.middle-right-arrow:hover {
+    transform: translate(8px);
 }
 
 .accordion-item.closed > .top-half > .name-and-subtitle > .subtitle,
@@ -163,6 +183,7 @@
 
 #brouhaha-image {
     background-image: url('../images/site/odyssey-2.jpg');
+    cursor: pointer;
 }
 
 #max-image {
@@ -183,6 +204,10 @@
 
 #john-image {
     background-image: url('../images/site/john.jpg');
+}
+
+#ciaran-image {
+    background-image: url('../images/site/ciaran.jpg');
 }
 
 #lydia-image {

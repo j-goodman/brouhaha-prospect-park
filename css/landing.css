@@ -18,15 +18,9 @@
     font-size: 4.2em;
     margin: 8px;
     padding: 0 24px;
+    text-align: center;
     text-transform: uppercase;
 }
-
-@media screen and (max-width: 1000px) {
-    .landing-title {
-        font-size: 5em;
-    }
-}
-
 
 h2.landing-title {
     padding-left: 90px;

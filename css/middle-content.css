@@ -15,6 +15,7 @@
     flex-direction: column;
     font-family: 'Slabo 27px', sans-serif;
     justify-content: flex-start;
+    min-height: 674px;
     padding-top: 24px;
     padding-bottom: 16px;
     width: 60%;
@@ -34,11 +35,4 @@
 
 .middle-content-container > p > iframe {
     max-width: 100%;
-}
-
-@media screen and (min-width: 1000px) {
-    .middle-content-container > p > iframe {
-        max-width: 50%;
-        height: auto;
-    }
 }

@@ -7,7 +7,7 @@
 }
 
 .main-title, .main-subtitle {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,.7);
     color: rgba(255,255,255,1);
     margin: 0;
 }
@@ -19,7 +19,7 @@
     margin-top: 3%;
     padding-left: 3%;
     text-transform: uppercase;
-    width: 46%;
+    width: 64%;
 }
 
 .main-subtitle {
@@ -30,11 +30,10 @@
     padding-bottom: 1%;
     padding-top: 1%;
     padding-left: 2%;
-    width: 60%;
+    width: 76%;
 }
 
 .main-detail-section {
-    background: rgba(0,0,0,.3);
     color: rgba(255,255,255,1);
     width: 50%;
 }
@@ -48,7 +47,7 @@
 }
 
 .book-ticket-button, .right-arrow {
-    background: rgba(255,255,255,.9);
+    background: rgba(255,255,255,.95);
     color: rgba(0,0,0,1);
     font-size: 1.2em;
     font-weight: bold;
@@ -73,7 +72,7 @@
 }
 
 .main-detail-blurb {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,.7);
     font-family: 'Slabo 27px', sans-serif;
     font-size: 1.1em;
     padding: 2%;
@@ -82,22 +81,14 @@
 @media screen and (max-width: 1200px) {
     .main-title {
         margin-top: 6%;
-        width: 76%;
-    }
-    .main-subtitle {
-        width: 66%;
+        width: 62%;
     }
     .main-detail-section {
-        width: 74%;
+        width: 68%;
     }
 }
 
 @media screen and (max-width: 950px) {
-    .main-title, .main-subtitle, .main-detail-section {
-        text-align: center;
-        width: 100%;
-    }
-
     .main-subtitle {
         font-size: 1.3em;
     }
