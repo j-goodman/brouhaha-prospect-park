@@ -7,19 +7,20 @@
 }
 
 .main-title, .main-subtitle {
-    background: rgba(10,15,5,0.9);
+    background: rgba(0,0,0,0.7);
     color: rgba(255,255,255,1);
     margin: 0;
 }
 
 .main-title {
-    color: rgba(255,255,255,.8);
+    color: rgba(255,255,255,1);
+    transform: scaleX(1.2);
     font-family: 'Oswald', sans-serif;
     font-size: 8em;
     margin-top: 3%;
     padding-left: 3%;
     text-transform: uppercase;
-    width: 56%;
+    width: 46%;
 }
 
 .main-subtitle {
@@ -34,7 +35,7 @@
 }
 
 .main-detail-section {
-    background: rgba(10,15,5,0.9);
+    background: rgba(0,0,0,.3);
     color: rgba(255,255,255,1);
     width: 50%;
 }
@@ -48,9 +49,10 @@
 }
 
 .book-ticket-button, .right-arrow {
-    background: rgba(255,255,255,.7);
-    color: rgba(10,15,5,1);
-    font-size: 1.5em;
+    background: rgba(255,255,255,.9);
+    color: rgba(0,0,0,1);
+    font-size: 1.2em;
+    font-weight: bold;
     margin: 12px;
     padding: 12px;
     text-transform: uppercase;
@@ -72,10 +74,10 @@
 }
 
 .main-detail-blurb {
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    padding: 4%;
-    padding-top: 0;
+    background: rgba(0,0,0,0.7);
+    font-family: 'Slabo 27px', sans-serif;
+    font-size: 1.1em;
+    padding: 2%;
 }
 
 @media screen and (max-width: 1200px) {
