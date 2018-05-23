@@ -14,7 +14,6 @@
 
 .main-title {
     color: rgba(255,255,255,1);
-    transform: scaleX(1.2);
     font-family: 'Oswald', sans-serif;
     font-size: 8em;
     margin-top: 3%;
@@ -97,6 +96,10 @@
     .main-title, .main-subtitle, .main-detail-section {
         text-align: center;
         width: 100%;
+    }
+
+    .main-subtitle {
+        font-size: 1.3em;
     }
 }
 

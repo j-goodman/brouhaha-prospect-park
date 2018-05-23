@@ -13,17 +13,17 @@
 }
 
 .landing-title {
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.8);
     color: rgba(255,255,255,1);
-    font-size: 4.2em /*medium-l*/;
+    font-size: 4.2em;
     margin: 8px;
     padding: 0 24px;
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
     .landing-title {
-        font-size: 5em /*large-p*/;
+        font-size: 5em;
     }
 }
 
@@ -35,12 +35,12 @@ h2.landing-title {
 
 .landing-title > em {
     font-style: normal;
-    font-size: 1.1em /*magnifier*/;
+    font-size: 1.1em;
     margin-top: 100px;
 }
 
 .enter-arrow {
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.7);
     border-radius: 50%;
     cursor: pointer;
     margin-top: 3%;

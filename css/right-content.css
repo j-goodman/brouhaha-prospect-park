@@ -61,11 +61,21 @@
     flex-direction: row;
     justify-content: center;
     margin: 2%;
+    margin-top: 12px;
 }
 
 .accordion-item.open > .bottom-half > p {
     font-size: 1em;
     padding: 2%;
+}
+
+@media screen and (max-width: 1000px) {
+    .accordion-item.open > .bottom-half > p {
+        font-size: 2em;
+    }
+    .accordion-item.open > .bottom-half {
+        flex-direction: column;
+    }
 }
 
 .accordion-item.open > .bottom-half > .next-accordion {
@@ -76,13 +86,24 @@
     font-size: 2em;
     margin: 12px;
     padding: 12px;
+    text-align: center;
     text-transform: uppercase;
     transition: .2s;
+}
+
+@media screen and (max-width: 1000px) {
+    .accordion-item.open > .bottom-half > .next-accordion {
+        width: 150px;
+    }
 }
 
 .accordion-item.open > .bottom-half > .next-accordion:hover {
     opacity: .9;
     transform: scale(1.1);
+}
+
+.side-content > .left-arrow {
+    margin-top: 250px;
 }
 
 .left-arrow {
@@ -94,7 +115,6 @@
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
     margin: 12px;
-    margin-top: 250px;
     padding: 12px;
     text-decoration: none;
     text-transform: uppercase;
