@@ -70,7 +70,7 @@
 }
 
 .accordion-item.open > .bottom-half > p > a {
-    color: rgba(130,90,230,1);
+    color: rgba(220,170,255,1);
 }
 
 .accordion-item.open > .bottom-half > p > a:hover {
