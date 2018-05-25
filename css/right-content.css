@@ -182,7 +182,7 @@
 }
 
 #brouhaha-image {
-    background-image: url('../images/site/odyssey-2.jpg');
+    background-image: url('../images/site/brouhaha-logo.jpg');
     cursor: pointer;
 }
 
@@ -192,6 +192,10 @@
 
 #nick-image {
     background-image: url('../images/site/nick.jpg');
+}
+
+#maryanne-image {
+    background-image: url('../images/site/maryanne.jpg');
 }
 
 #hanna-image {
