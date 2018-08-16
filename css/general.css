@@ -3,7 +3,13 @@ body {
 }
 
 a {
+    color: rgba(200,200,255,1);
+    margin-top: 12px;
     text-decoration: none;
+}
+
+a:hover {
+    color: rgba(150,150,255,1);
 }
 
 #canvas, .enter-content, .main-content, .middle-content, .side-content {
